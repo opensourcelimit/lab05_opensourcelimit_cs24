@@ -8,9 +8,6 @@ using namespace std;
 int main() {
     Stack s;
 
-    s.push(10);
-    s.push(20);
-
     while (!s.empty()) {
         cout << s.top() << endl;
         s.pop();

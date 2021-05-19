@@ -19,7 +19,7 @@ public:
     void pop() { --next; }
     int top() const { return data[next-1]; }
     bool empty() const { return next <= 0; }
-private:
+
     int next, data[CAPACITY];
 };
 

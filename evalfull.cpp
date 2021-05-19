@@ -23,13 +23,30 @@ bool balanced(char *expression[], int numTokens) {
 
     stack<char *> s;  // USE s TO SOLVE THE PROBLEM - it is an STL
                       // (Standard Template Library) structure with
-                      // all of the same operations as the stack from
+                      // all of the same operations as the stack fromi
                       // Step 2 of this lab, but it won't get full
                       // and it can store any type - <char *> here
+    for(int i = 0; i < numTokens; i++){
+     if( identify(expression[i]) == LEFT){
+        s.push("(");
 
+
+     }
+     if( identify(expression[i]) == RIGHT){
+         if( s.empty()){return false;}
+         s.pop();
+
+
+
+    }
+    
+    if(s.empty())
+    {
+        return true;
+    }
+}
     return false; // REPLACE THIS return WITH ACTUAL IMPLEMENTATION
 }
-
 // DO NOT CHANGE ANYTHING BELOW - BUT DO READ IT
 
 // utility function returns one of those constants
@@ -134,7 +151,8 @@ int main() {
     cin.getline(input, MAXLEN);
     // ( ( 4.2 * 6.4 ) + 5 )
     char *ptr = strtok(input, " ");
-
+    //takes separate tokens from input and stores them in the tokens char* array
+    //each loop raises count by 1 producing the total count of seperate tokens stored in tokens arrayt
     int count = 0;
     while (ptr != 0) {
         tokens[count] = ptr;
