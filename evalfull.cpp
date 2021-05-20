@@ -19,7 +19,7 @@ TokenType identify(char *t);
 // string tokens like { "(", "4.2", ")" } and numTokens
 // is the number of tokens in the array (3 in the sample)
 
-bool balanced(const char *expression[], int numTokens) {
+bool balanced(char *expression[], int numTokens) {
 
     stack<char *> s;  // USE s TO SOLVE THE PROBLEM - it is an STL
                       // (Standard Template Library) structure with
@@ -28,7 +28,7 @@ bool balanced(const char *expression[], int numTokens) {
                       // and it can store any type - <char *> here
     for(int i = 0; i < numTokens; i++){
      if( identify(expression[i]) == LEFT){
-        s.push("(");
+        s.push(expression[i]);
 
 
      }
